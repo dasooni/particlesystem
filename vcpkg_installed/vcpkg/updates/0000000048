@@ -1,0 +1,6 @@
+Package: capstone
+Feature: arm64
+Architecture: x64-windows
+Multi-Arch: same
+Description: Capstone disassembly support for ARM64
+Status: install ok half-installed

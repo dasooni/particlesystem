@@ -1,0 +1,7 @@
+Package: tracy
+Feature: gui-tools
+Depends: capstone, freetype, glfw3
+Architecture: x64-windows
+Multi-Arch: same
+Description: Build Tracy GUI tool: `profiler` (aka `Tracy` executable)
+Status: install ok half-installed

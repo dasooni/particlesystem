@@ -1,0 +1,8 @@
+Package: glm
+Version: 0.9.9.8
+Port-Version: 1
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 3b3ee841caa4efa2f6fc2eb9c9178449cc9f9002d519a76dbf574caa11f3e06f
+Description: OpenGL Mathematics (GLM)
+Status: install ok installed

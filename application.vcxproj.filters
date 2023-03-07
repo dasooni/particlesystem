@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Dasmit\Desktop\TNM094LAB2\particlesystem\src\application\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Dasmit\Desktop\TNM094LAB2\particlesystem\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="particlesystem\include\particlesystem\effect.h" />
+    <ClInclude Include="particlesystem\include\particlesystem\emitter.h" />
+    <ClInclude Include="particlesystem\include\particlesystem\particle.h" />
+    <ClInclude Include="particlesystem\include\particlesystem\ParticleSystem.h" />
+    <ClInclude Include="particlesystem\include\rendering\window.h" />
+  </ItemGroup>
+</Project>

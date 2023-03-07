@@ -1,0 +1,7 @@
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/rendering.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/particlesystem.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/unittest.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/application.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/RUN_TESTS.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/ALL_BUILD.dir
+C:/Users/Dasmit/Desktop/TNM094LAB2/CMakeFiles/ZERO_CHECK.dir

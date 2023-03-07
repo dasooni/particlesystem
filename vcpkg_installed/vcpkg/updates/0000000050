@@ -1,0 +1,9 @@
+Package: capstone
+Version: 5.0.0-rc2
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: cb53fcc5623c7dc82957a360bd3911ef2684be06dc0fe15b166f92a4704f9329
+Description: Multi-architecture disassembly framework
+Status: install ok installed
