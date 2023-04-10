@@ -50,15 +50,17 @@ void ParticleSystem::addEmitter(std::unique_ptr<Emitter>&& em
     ,glm::vec2 position) {
     
     setEmitterPosition(position);
-    std::cout << typeid(*em).name() << " called" << std::endl;
+    fmt::print("[{}] {}(line {}): emitter {} added to system\n", __TIME__, __FUNCTION__, __LINE__, typeid(*em).name());
     emitters.emplace_back(std::move(em));
 }
 
 void ParticleSystem::addEffect(std::unique_ptr<Effect>&& effect) { 
+    fmt::print("[{}] {}(line {}): effect {} added to system\n", __TIME__, __FUNCTION__, __LINE__, typeid(*effect).name());
     effects.emplace_back(std::move(effect)); 
 }
 
 size_t ParticleSystem::getNumberOfParticles() const { 
+    fmt::print("[{}] {}(line {}): number of particles in the system is: {}\n", __TIME__, __FUNCTION__, __LINE__, particles.size());
     return particles.size(); 
 }
 
@@ -70,13 +72,14 @@ void ParticleSystem::setEmitterPosition(const glm::vec2& position) {
     emitterPosition = position; 
 }
 
-void ParticleSystem::removeEmitter(std::unique_ptr<Emitter>&& emitter) { 
+void ParticleSystem::removeEmitter(std::unique_ptr<Emitter>&& emitter) {  
     emitter.release();
 }
 void ParticleSystem::removeEffect(std::unique_ptr<Effect>&& effect) {
 
     auto it = std::find_if(effects.begin(), effects.end(),
         [&](auto& e) { 
+            fmt::print("[{}] {}(line {}): effect {} removed from system" ,  __TIME__, __FUNCTION__, __LINE__, typeid(*effect).name());
             return typeid(*e) == typeid(*effect); 
         });
 

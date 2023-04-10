@@ -19,8 +19,6 @@ int main(int, char**) try {
 
     auto particleSystem = std::make_unique<ParticleSystem>(std::move(uni), 
         numParticles, emitterPosition);
-    fmt::print("System initialized with: {} particles\n"
-        ,particleSystem->getNumberOfParticles());
    
     particleSystems.emplace_back(std::move(particleSystem));
     /* */
@@ -37,12 +35,13 @@ int main(int, char**) try {
         ,set_number_of_particles{static_cast<int>(numParticles)}
         ,max_number_of_particles{1000};
     while (running) {
-        window.beginFrame();
+        ZoneScopedN("Update particles");
 
+        window.beginFrame();
         const auto t = window.time();
         const auto dt = t - prevTime;
         prevTime = t;
-        ZoneScopedN("Update particles"); 
+        
         const float sim_dt{static_cast<float>(dt) * speed};
         for (size_t i = 0; i < particleSystems.size(); i++) {
             particleSystems[i]->setEmitterPosition(emitPos[i]);
@@ -73,6 +72,7 @@ int main(int, char**) try {
             }
                 
             if (window.button("Emitter: uniform")) {
+                fmt::print("{} at line: {}\n", __func__, __LINE__);
                 gravity_on = false, wind_on = false;
                 auto new_pos = glm::vec2{0.0f, 0.0f};
                 auto new_uniform = std::make_unique<Uniform>();
@@ -84,6 +84,7 @@ int main(int, char**) try {
             }
             
             if (window.button("Emitter: Directional")) {
+                fmt::print("{} at line: {}\n", __func__, __LINE__);
                 gravity_on = false, wind_on = false;
                 auto new_pos = glm::vec2{0.0f, 0.0f};
                 auto new_directional = std::make_unique<Directional>();
@@ -95,6 +96,7 @@ int main(int, char**) try {
             }
 
             if (window.button("Emitter: Explosion")) {
+                fmt::print("{} at line: {}\n", __func__, __LINE__);
                 				gravity_on = false, wind_on = false;
 				auto new_pos = glm::vec2{0.0f, 0.0f};
 				auto new_explosion = std::make_unique<Explosion>();
@@ -102,10 +104,13 @@ int main(int, char**) try {
 					(std::move(new_explosion), numParticles, new_pos);
 				emitPos.emplace_back(new_pos);
 				particleSystems.emplace_back(std::move(new_system));
+
+                
             }
             
             window.text("Forces");
             if (window.checkbox("Gravity", gravity_on)) {
+                fmt::print("{} at line: {}\n",__func__, __LINE__);
                 for (auto& p : particleSystems) {
                     auto apply_gravity = std::make_unique<GravityWell>();
                     gravity_on ? p->addEffect(std::move(apply_gravity))
@@ -113,6 +118,7 @@ int main(int, char**) try {
                 }
             }
             if (window.checkbox("Wind", wind_on)) {
+                fmt::print("{} at line: {}\n", __func__, __LINE__);
                 for (auto& p : particleSystems) {
                     auto apply_wind = std::make_unique<Wind>();
                     wind_on ? p->addEffect(std::move(apply_wind))

@@ -6,6 +6,7 @@
 #include <rendering/window.h>
 #include <particlesystem/emitter.h>
 #include <particlesystem/effect.h>
+#include <fmt/format.h>
 class ParticleSystem {
 private:
     std::vector<Particle> particles;
