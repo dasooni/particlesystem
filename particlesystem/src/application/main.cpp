@@ -93,6 +93,16 @@ int main(int, char**) try {
                 emitPos.emplace_back(new_pos);
                 particleSystems.emplace_back(std::move(new_system));
             }
+
+            if (window.button("Emitter: Explosion")) {
+                				gravity_on = false, wind_on = false;
+				auto new_pos = glm::vec2{0.0f, 0.0f};
+				auto new_explosion = std::make_unique<Explosion>();
+				auto new_system = std::make_unique<ParticleSystem>
+					(std::move(new_explosion), numParticles, new_pos);
+				emitPos.emplace_back(new_pos);
+				particleSystems.emplace_back(std::move(new_system));
+            }
             
             window.text("Forces");
             if (window.checkbox("Gravity", gravity_on)) {

@@ -7,6 +7,7 @@
 #include <random>
 #include <iostream>
 #include <vector>
+#include <numbers>
 
 #include <glm/glm.hpp>
 #include <particlesystem/particle.h>
@@ -79,3 +80,30 @@ public:
         }
     }
 };
+
+// Explosion: specified point, high rate, random direction
+class Explosion : public Emitter {
+public:
+    void generateParticles(Particle& p, glm::vec2& pos) override {
+        velocityX = 1.0f;
+        velocityY = 1.0f;
+        constexpr double pi{std::numbers::pi};
+        if (p.life <= 0.005f) {
+            gen = std::mt19937(rd());
+            dis = std::uniform_real_distribution<float>(0.0f, 1.0f);
+            vel = std::uniform_real_distribution<float>(0.0f, 360.0f);
+
+		    p.position = pos;
+
+		    p.velocity = {0.2f * dis(gen) * std::sinf(vel(gen))
+                ,0.2f * dis(gen) * std::cosf(vel(gen))};
+		    p.mass = dis(gen) * mass + 1.0f;
+            p.life = dis(gen)*10.0f * life + 1.0f;
+		    p.color = glm::vec4(dis(gen), dis(gen)
+                					,dis(gen), std::min(p.life, 1.0f));
+			
+			
+        }
+    }
+};
+

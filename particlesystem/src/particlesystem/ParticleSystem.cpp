@@ -19,7 +19,7 @@ void ParticleSystem::draw(rendering::Window& window) {
     for (auto& emitter: emitters) {
         window.drawPoint(emitterPosition, 20.0f
             ,glm::vec4(1.0f, 0.98f, 0.98f, 0.5f));
-        
+        // size / life is the rate of emission.
         for (size_t i = 0; i < particles.size()/emitter->getLife(); ++i) {
             emitter->generateParticles(particles[i], emitterPosition);
             positions.push_back(particles[i].position);
@@ -39,8 +39,7 @@ void ParticleSystem::update(const float& dt) {
         
         glm::vec2 acceleration{};
         for (auto& effect : effects) {
-            acceleration += effect->applyEffect
-            (particle) / particle.mass;
+            acceleration += effect->applyEffect(particle) / particle.mass;
         }
         particle.velocity += acceleration * (dt);
 		particle.position += particle.velocity * (dt);

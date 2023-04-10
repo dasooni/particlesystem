@@ -1,0 +1,7 @@
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/rendering.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/particlesystem.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/unittest.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/application.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/drami/source/repos/dasooni/particlesystem/build/CMakeFiles/ZERO_CHECK.dir
